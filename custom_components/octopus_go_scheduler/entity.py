@@ -1,8 +1,7 @@
 """CarbonIntensityEntity class"""
 from homeassistant.helpers import entity
 
-from custom_components.carbon_intensity_uk.const import DOMAIN, VERSION, NAME
-
+from custom_components.octopus_go_scheduler.const import DOMAIN, VERSION, NAME
 
 class CarbonIntensityEntity(entity.Entity):
     def __init__(self, coordinator, config_entry):

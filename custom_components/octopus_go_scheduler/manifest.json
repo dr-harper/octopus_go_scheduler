@@ -1,6 +1,6 @@
 {
-  "domain": "carbon_intensity_uk",
-  "name": "Carbon Intensity UK",
+  "domain": "octopus_go_scheduler",
+  "name": "Octopus Go Scheduler",
   "documentation": "https://github.com/jfparis/sensor.carbon_intensity_uk",
   "dependencies": [],
   "version": "0.0.3",
@@ -13,6 +13,7 @@
   ],
   "requirements": [
     "aiohttp",
-    "numpy"
+    "numpy",
+    "pandas"
   ]
 }

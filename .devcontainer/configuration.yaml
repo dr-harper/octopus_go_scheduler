@@ -3,5 +3,5 @@ default_config:
 logger:
   default: debug
   logs:
-    custom_components.carbon_intensity_uk: debug
+    custom_components.octops_go_scheduler: debug
 

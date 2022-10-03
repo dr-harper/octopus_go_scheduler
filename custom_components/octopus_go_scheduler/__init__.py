@@ -1,7 +1,9 @@
 """
-Custom integration to integrate UK Carbon Intensity API with Home Assistant.
+Custom integration to schedule devices to run on Octopus Go Tariff.
 
-For more details about this integration, please refer to
+Finds the cheapest and greenest times to run.
+
+Code foundations based heavily around
 https://github.com/jscruz/sensor.carbon_intensity_uk
 """
 import asyncio
@@ -12,7 +14,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import Config, HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
-from .client import Client as CarbonIntentisityApi
+from .client import Client as CarbonIntensityApi
 
 from .const import (
     CONF_POSTCODE,
@@ -25,11 +27,9 @@ SCAN_INTERVAL = timedelta(seconds=600)
 
 _LOGGER = logging.getLogger(__name__)
 
-
 async def async_setup(hass: HomeAssistant, config: Config):
     """Set up this integration using YAML is not supported."""
     return True
-
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     """Set up this integration using UI."""
@@ -67,7 +67,7 @@ class CarbonIntensityDataUpdateCoordinator(DataUpdateCoordinator):
 
     def __init__(self, hass, postcode):
         """Initialize."""
-        self.api = CarbonIntentisityApi(postcode)
+        self.api = CarbonIntensityApi(postcode)
         self.platforms = []
 
         super().__init__(
